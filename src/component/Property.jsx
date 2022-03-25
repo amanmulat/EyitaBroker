@@ -1,13 +1,16 @@
-import { Box, Flex, Text, Avatar } from '@chakra-ui/react'
+import { Box, Flex, Text, Avatar, useDisclosure } from '@chakra-ui/react'
 import { FaBed, FaBath } from "react-icons/fa"
 import { BsGridFill } from 'react-icons/bs'
 import { GoVerified } from 'react-icons/go'
 import millify from 'millify'
 import DefaultImage from '../assets/images/house.jpg'
-import { Link } from 'react-router-dom'
-export default function Property({property : {coverPhoto , price , rentFrequency , rooms , title , baths , area , agency, isVerified , externalID }}) {
+import { PropertyDetail } from './PropertyDetail'
+
+export default function Property({ property: { coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID } }) {
+    const { isOpen, onOpen, onClose } = useDisclosure()
   return (
-      <Link to="/">
+      <div onClick={onOpen}>
+          <PropertyDetail isOpen={isOpen} onOpen ={onOpen} onClose={onClose} purpose="For Rent" />
         <Flex w="420px" p="5" paddingTop="0" justifyContent="flex-start" flexWrap="wrap" cursor="pointer">
             <Box>
                 <img src={coverPhoto ? coverPhoto.url : DefaultImage} width={400} height={260} alt="house" />
@@ -30,6 +33,6 @@ export default function Property({property : {coverPhoto , price , rentFrequency
                 </Text>
             </Box>
         </Flex>
-      </Link>
+      </div>
   )
 }
