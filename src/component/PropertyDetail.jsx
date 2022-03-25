@@ -12,6 +12,7 @@ import {
   Box,
 } from '@chakra-ui/react'
 import { PropertyImages } from './PropertyImages'
+import PropertyDetaildesc from './PropertyDetaildesc'
 export const PropertyDetail = ({isOpen, onOpen, onClose , purpose}) => {
   return (
    
@@ -33,7 +34,7 @@ export const PropertyDetail = ({isOpen, onOpen, onClose , purpose}) => {
                           </Flex>
                       </Box>  
                       <Box width="50%" minWidth="25rem">
-                        this is the shit
+                        <PropertyDetaildesc/>
                       </Box>  
                   </Flex>
               </ModalBody>
